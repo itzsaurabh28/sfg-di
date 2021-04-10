@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import kumar.saurabh.sfgdi.services.GreetingServiceImpl;
+import kumar.saurabh.sfgdi.services.ConstructorGreetingService;
 import kumar.saurabh.sfgdi.services.GreetingServiceImplHindi;
 
 class SetterInjectedControllerTest {

@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import kumar.saurabh.sfgdi.services.GreetingServiceImpl;
+import kumar.saurabh.sfgdi.services.ConstructorGreetingService;
 
 class PropertyInjectedControllerTest {
 	
@@ -15,7 +15,7 @@ class PropertyInjectedControllerTest {
 	void setUp() throws Exception {
 		
 		controller=new PropertyInjectedController();
-		controller.greetingService=new GreetingServiceImpl();
+		controller.greetingService=new ConstructorGreetingService();
 	}
 
 	@Test

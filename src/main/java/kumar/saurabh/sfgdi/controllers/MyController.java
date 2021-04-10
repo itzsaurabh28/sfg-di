@@ -2,15 +2,27 @@ package kumar.saurabh.sfgdi.controllers;
 
 import org.springframework.stereotype.Controller;
 
+import kumar.saurabh.sfgdi.services.GreetingService;
+
 @Controller
 public class MyController {
 	
+	private final GreetingService greetingService;
 	
+	
+	//no need of autowired in case of constructor injection
+	public MyController(GreetingService greetingService) {
+		
+		this.greetingService = greetingService;
+	}
+
+
+
 	public String sayHello() {
 		
-		System.out.println("Hello World!!");
 		
-		return "Hey Guys!!";
+		
+		return greetingService.sayGreeting();
 	}
 
 }
