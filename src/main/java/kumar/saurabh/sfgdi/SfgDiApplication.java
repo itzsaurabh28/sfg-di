@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import kumar.saurabh.sfgdi.controllers.ConstructorInjectedController;
+import kumar.saurabh.sfgdi.controllers.I18nController;
 import kumar.saurabh.sfgdi.controllers.MyController;
 import kumar.saurabh.sfgdi.controllers.PropertyInjectedController;
 import kumar.saurabh.sfgdi.controllers.SetterInjectedController;
@@ -15,7 +16,7 @@ public class SfgDiApplication {
 	public static void main(String[] args) {
 		
 		
-		//manually creating context and using it for learning process
+		//manually creating context and using it for learning process---otherwise can directly be run through command line runner
 		ApplicationContext ctx=SpringApplication.run(SfgDiApplication.class, args);
 		
 		//creating bean manually ---spring framework will provide object for MyController
@@ -23,6 +24,12 @@ public class SfgDiApplication {
 		
 		System.out.println("----using primary bean");
 		System.out.println(myController.sayHello());
+		
+		System.out.println("..........bean creation based on profile");
+		
+		I18nController i18nController=(I18nController)ctx.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
+		
 		
 		
 		System.out.println("..........property based injection");
