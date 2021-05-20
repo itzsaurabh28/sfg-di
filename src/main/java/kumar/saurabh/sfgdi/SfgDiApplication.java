@@ -12,6 +12,8 @@ import kumar.saurabh.sfgdi.controllers.MyController;
 import kumar.saurabh.sfgdi.controllers.PetController;
 import kumar.saurabh.sfgdi.controllers.PropertyInjectedController;
 import kumar.saurabh.sfgdi.controllers.SetterInjectedController;
+import kumar.saurabh.sfgdi.services.PrototypeBean;
+import kumar.saurabh.sfgdi.services.SingletonBean;
 
 /*
  * by default, Spring boot application does component scan in the package containing main class
@@ -69,6 +71,26 @@ public class SfgDiApplication {
 		System.out.println("\n..........constructor based injection");
 		ConstructorInjectedController constructorInjectedController =(ConstructorInjectedController)ctx.getBean("constructorInjectedController");
 		System.out.println(constructorInjectedController.getGreeting());
+		
+		System.out.println("\n..........Bean scope");
+		SingletonBean singletonBean1=ctx.getBean("singletonBean", SingletonBean.class);
+		System.out.println(singletonBean1.getMyScope());
+		SingletonBean singletonBean2=ctx.getBean("singletonBean", SingletonBean.class);
+		System.out.println(singletonBean2.getMyScope());
+		
+		PrototypeBean prototypeBean1=ctx.getBean("prototypeBean", PrototypeBean.class);
+		System.out.println(prototypeBean1.getMyScope());
+		PrototypeBean prototypeBean2=ctx.getBean("prototypeBean", PrototypeBean.class);
+		System.out.println(prototypeBean2.getMyScope());
+		
+		//from the result we can see that singleton bean is created once the application context is up, 
+		//whereas prototype bean is only created when it is asked for
+		
+		
+		
+		
+		
 	}
+	
 
 }
