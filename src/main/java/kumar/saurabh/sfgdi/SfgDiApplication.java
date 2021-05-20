@@ -26,7 +26,7 @@ import kumar.saurabh.sfgdi.controllers.SetterInjectedController;
  * 
  */
 
-@ComponentScan(basePackages = {"kumar.saurabh.sfgdi","kumar.saurabh.pets"})
+//@ComponentScan(basePackages = {"kumar.saurabh.sfgdi","kumar.saurabh.pets"}) -- no need as everything is managed in the java config
 @SpringBootApplication
 public class SfgDiApplication {
 

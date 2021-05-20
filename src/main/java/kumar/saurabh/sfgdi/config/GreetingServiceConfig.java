@@ -5,6 +5,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 
+import kumar.saurabh.pets.CatPetService;
+import kumar.saurabh.pets.PetService;
+import kumar.saurabh.pets.PetServiceFactory;
 import kumar.saurabh.sfgdi.repositories.EnglishGreetingRepository;
 import kumar.saurabh.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import kumar.saurabh.sfgdi.services.ConstructorGreetingService;
@@ -21,6 +24,22 @@ import kumar.saurabh.sfgdi.services.SetterInjectedGreetingService;
 
 @Configuration
 public class GreetingServiceConfig {
+	
+	@Bean
+	PetServiceFactory petServiceFactory() {
+		return new PetServiceFactory();
+	}
+	@Profile({"dog","default"})
+	@Bean
+	PetService DogPetService(PetServiceFactory petServiceFactory) {
+		return petServiceFactory.getPetService("dog");
+	}
+	
+	@Profile("cat")
+	@Bean
+	PetService CatPetService(PetServiceFactory petServiceFactory) {
+		return petServiceFactory.getPetService("cat");
+	}
 	
 	@Profile({"ES","default"}) 
 	@Bean("i18nService")  //by default spring uses method name unless overridden like this
