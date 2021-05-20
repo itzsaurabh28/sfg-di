@@ -2,7 +2,8 @@ package kumar.saurabh.sfgdi.services;
 
 import org.springframework.stereotype.Service;
 
-@Service   //for spring to pick out this implementation of greeting service??
+//@Service   //for spring to pick out during component scan
+//now trying to use java based configuration, so no need of streotype annotation
 public class ConstructorGreetingService implements GreetingService {
 
 	@Override

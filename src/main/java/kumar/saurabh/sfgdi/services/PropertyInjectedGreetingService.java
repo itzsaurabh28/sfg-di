@@ -2,7 +2,7 @@ package kumar.saurabh.sfgdi.services;
 
 import org.springframework.stereotype.Service;
 
-@Service   //for spring to pick out this implementation of greeting service??
+//@Service   
 public class PropertyInjectedGreetingService implements GreetingService {
 
 	@Override
